@@ -1,3 +1,5 @@
+import sys
+
 from stats import count_characters, count_words
 
 
@@ -11,13 +13,14 @@ def print_record(word_count: int, character_count: dict) -> str:
 
     for k, v in character_count:
         if k.isalpha():
-            print(f"The '{k}' character was found {v} times")
+            print(f"{k}: {v}")
     
     print("--- End of the report ---")
 
-
 if __name__ == "__main__":
-    book_path = "books/frankenstein.txt"
+    if len(sys.argv) <= 1:
+        print("Usage: python3 main.py <path_to_book>")
+    book_path = sys.argv[1]
     text = get_book_text(book_path)
     word_count = count_words(text)
     character_count = count_characters(text)
