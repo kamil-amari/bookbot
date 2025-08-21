@@ -1,2 +1,1 @@
-Simple python project:
-Reads a book and counts character occurences and number of words.
+BookBot is my first [Boot.dev](https://www.boot.dev) project!
