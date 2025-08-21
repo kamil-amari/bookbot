@@ -1,19 +1,9 @@
-from collections import defaultdict
+from stats import count_characters, count_words
 
 
 def get_book_text(book_path: str) -> str:
     with open(book_path, 'r') as book:
         return book.read()
-
-def count_words(text: str) -> int:
-    words = text.split()
-    return len(words)
-
-def count_characters(text: str) -> list[tuple]:
-    count = defaultdict(int)
-    for c in text.lower():
-        count[c] += 1
-    return sorted(count.items(), key=lambda x: x[1], reverse=True)
 
 def print_record(word_count: int, character_count: dict) -> str:
     print("--- Begin report of books/frankenstein.txt ---")
